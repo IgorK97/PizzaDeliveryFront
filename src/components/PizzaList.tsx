@@ -9,8 +9,13 @@ const PizzaList: React.FC = () => {
 
   if (!context) return <div>No context available!</div>
 
-  const { pizzas } = context
-
+  const { pizzas, deletePizza } = context
+const handleDelete = (id:number)=>{
+  const isConfirmed = window.confirm("Вы уверены, что хотите удалить эту пиццу?")
+if(isConfirmed){
+  deletePizza(id)
+}
+}
   return (
     <div>
       <h2>Pizzas</h2>
@@ -27,6 +32,7 @@ const PizzaList: React.FC = () => {
           <p>{piz.image && <img src={piz.image} alt={piz.name} style={{width: "150px"}}/>}</p>
           {/* <p>Due Date: {piz.dueDate}</p> */}
           <Link to={`/pizzas/${piz.id}`}>View Details</Link> {/* Переход к деталям пиццы */}
+        <p><button onClick={()=>handleDelete(piz.id)}>Удалить</button></p>{/*Удаление пиццы*/}
         </div>
       ))}
     </div>

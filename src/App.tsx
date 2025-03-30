@@ -12,8 +12,8 @@ const App: React.FC = () => {
         <h1>Pizza Management</h1>
         <Routes>
           <Route path="/" element={<PizzaList />} /> {/* Главная страница */}
-          <Route path="pizzas/add" element={<PizzaForm />} /> {/* Добавление проекта */}
-          <Route path="/pizzas/:id" element={<PizzaDetails />} /> {/* Детали проекта */}
+          <Route path="pizzas/add" element={<PizzaForm />} /> {/* Добавление пиццы */}
+          <Route path="/pizzas/:id" element={<PizzaDetails />} /> {/* Детали пиццы */}
         </Routes>
       </Router>
     </PizzaProvider>

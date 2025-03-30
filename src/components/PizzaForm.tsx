@@ -116,14 +116,7 @@ const handleCheckboxChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
         }}/>
       </div>
       
-      {/* <div>
-        <input
-          type="date"
-          value={newPizza.dueDate}
-          required // Поле обязательно для заполнения
-          onChange={(e) => setNewProject({ ...newProject, dueDate: e.target.value })}
-        />
-      </div> */}
+     
       <button type="submit">Add Pizza</button> {/* Кнопка для отправки формы */}
       <button type="button" onClick={() => navigate("/")}>
         Back
