@@ -1,15 +1,7 @@
 import React, { useState, useContext } from "react"
 import { PizzaContext } from "../context/PizzaContext"
 import { useNavigate } from "react-router-dom"
-
-// Интерфейс для описания структуры новой пиццы
-interface NewPizza {
-  name: string;
-  description: string;
-  isAvailable:boolean;
-  image: File | null;
-  
-}
+import {NewPizza} from "../models/NewPizza" // Интерфейс для описания структуры новой пиццы
 
 // Компонент для добавления новой пиццы
 const PizzaForm: React.FC = () => {
@@ -22,13 +14,13 @@ const PizzaForm: React.FC = () => {
     isAvailable:true,
     image: null,
   })
-  const [image,setImage]=useState<File|null>(null)
+  // const [image,setImage]=useState<File|null>(null)
 
-const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
-  if(e.target.files && e.target.files.length>0){
-    setImage(e.target.files[0])
-  }
-}
+// const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
+//   if(e.target.files && e.target.files.length>0){
+//     setImage(e.target.files[0])
+//   }
+// }
 
   // Обработчик отправки формы
   const handleSubmit = async (e: React.FormEvent) => {
@@ -82,7 +74,7 @@ const handleCheckboxChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
 }
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Add New Project</h2>
+      <h2>Add New Pizza</h2>
       <div>
         <input
           type="text"

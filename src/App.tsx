@@ -9,7 +9,7 @@ const App: React.FC = () => {
   return (
     <PizzaProvider>
       <Router>
-        <h1>Pizza Management</h1>
+        <h1>Пиццерия</h1>
         <Routes>
           <Route path="/" element={<PizzaList />} /> {/* Главная страница */}
           <Route path="pizzas/add" element={<PizzaForm />} /> {/* Добавление пиццы */}

@@ -23,10 +23,7 @@ class APIService {
 
   // Создание новой пиццы
   async createPizza(formData: FormData): Promise<Pizza> {
-    // const formData = new FormData()
-    // formData.append("name", pizza.name)
-    // formData.append("description", pizza.description)
-    // if(image) formData.append("file", image)
+   
 
     const response = await fetch(`${this.baseUrl}/Pizzas`, {
       method: "POST",
@@ -34,7 +31,7 @@ class APIService {
       // body: JSON.stringify(pizza),
       body: formData
     })
-    if (!response.ok) throw new Error("Failed to create pizza")
+    if (!response.ok) throw new Error("Пиццу создать не удалось")
     return await response.json()
   }
 
@@ -44,8 +41,7 @@ class APIService {
     return await response.json()
   }
   async updatePizza(id: number, formData: FormData): Promise<Pizza> {
-    // Включаем id обратно в объект project
-    // const pizzaWithId = { ...pizza, id };
+  
   
     const response = await fetch(`${this.baseUrl}/Pizzas/${id}`, {
       method: "PUT",

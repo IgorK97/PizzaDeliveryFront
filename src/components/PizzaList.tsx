@@ -8,7 +8,8 @@ const PizzaList: React.FC = () => {
   const navigate = useNavigate() // Хук для программной навигации между страницами
 
   if (!context) return <div>No context available!</div>
-
+  // const { pizzas } = context
+ 
   const { pizzas, deletePizza } = context
 const handleDelete = (id:number)=>{
   const isConfirmed = window.confirm("Вы уверены, что хотите удалить эту пиццу?")
@@ -18,7 +19,7 @@ if(isConfirmed){
 }
   return (
     <div>
-      <h2>Pizzas</h2>
+      <h2>Список пицц</h2>
       {/* Кнопка для добавления новой пиццы */}
       <button onClick={() => navigate("pizzas/add")}>Add New Pizza</button>
 
@@ -32,7 +33,8 @@ if(isConfirmed){
           <p>{piz.image && <img src={piz.image} alt={piz.name} style={{width: "150px"}}/>}</p>
           {/* <p>Due Date: {piz.dueDate}</p> */}
           <Link to={`/pizzas/${piz.id}`}>View Details</Link> {/* Переход к деталям пиццы */}
-        <p><button onClick={()=>handleDelete(piz.id)}>Удалить</button></p>{/*Удаление пиццы*/}
+          {/*Удаление пиццы*/}
+        <p><button onClick={()=>handleDelete(piz.id)}>Удалить</button></p>
         </div>
       ))}
     </div>
@@ -95,20 +97,43 @@ export default PizzaList
 //     }
 
 //     // Если данные успешно загружены, отображаем список пицц
-//     return (
-//         <div>
-//             <h1>Список пицц</h1>
-//             <ul>
-//                 {/* Проходим по массиву pizzas и отображаем каждую пиццу */}
-//                 {projects.map((project) => (
-//                     <li key={project.id}> {/* Указываем ключ для каждого элемента списка */}
-//                         <h2>{project.name}</h2> {/* Отображаем название пиццы */}
-//                         <p>{project.description}</p> {/* Отображаем описание пиццы */}
-//                     </li>
-//                 ))}
-//             </ul>
+//   return (
+//     <div>
+//       <h2>Pizzas</h2>
+//       {/* Кнопка для добавления новой пиццы */}
+//       <button onClick={() => navigate("pizzas/add")}>Add New Pizza</button>
+
+//       {/* Отображение списка пицц */}
+//       {pizzas.map((piz) => (
+//         <div key={piz.id}>
+//           {/* <h3>{piz.id}</h3> */}
+//           <h3>{piz.name}</h3>
+//           <p>{piz.description}</p>
+//           <p>{piz.isAvailable? "В ассортименте": "Отсутствует"}</p>
+//           <p>{piz.image && <img src={piz.image} alt={piz.name} style={{width: "150px"}}/>}</p>
+//           {/* <p>Due Date: {piz.dueDate}</p> */}
+//           <Link to={`/pizzas/${piz.id}`}>View Details</Link> {/* Переход к деталям пиццы */}
+//           {/*Удаление пиццы*/}
+//         <p><button onClick={()=>handleDelete(piz.id)}>Удалить</button></p>
 //         </div>
-//     );
+//       ))}
+//     </div>
+//   )
+
+//     // return (
+//     //     <div>
+//     //         <h1>Список пицц</h1>
+//     //         <ul>
+//     //             {/* Проходим по массиву pizzas и отображаем каждую пиццу */}
+//     //             {projects.map((project) => (
+//     //                 <li key={project.id}> {/* Указываем ключ для каждого элемента списка */}
+//     //                     <h2>{project.name}</h2> {/* Отображаем название пиццы */}
+//     //                     <p>{project.description}</p> {/* Отображаем описание пиццы */}
+//     //                 </li>
+//     //             ))}
+//     //         </ul>
+//     //     </div>
+//     // );
 // };
 
 // // Экспортируем компонент PizzaList по умолчанию
